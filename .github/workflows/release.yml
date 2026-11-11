@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: "22"
       - uses: actions/setup-python@v5
@@ -68,7 +68,7 @@ jobs:
           python -m pip install --upgrade pip pyinstaller
           pyinstaller --noconfirm --onefile --name originclean-backend --paths service/scripts --paths . backend/service/app_server.py
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: "22"
 
