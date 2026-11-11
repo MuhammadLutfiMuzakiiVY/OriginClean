@@ -1,0 +1,59 @@
+name: OriginClean CI
+
+on:
+  push:
+    branches: ["main", "master"]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  frontend-test-and-build:
+    name: Frontend (TypeScript, Vitest, Vite Build)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+      - run: npm install
+      - run: npm run test
+      - run: npm run build
+
+  backend-test:
+    name: Backend (Python Engine & OriginClean API)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Install test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-dev.txt
+      - name: Run OriginClean backend test suite
+        run: python -m pytest -v backend/tests/test_originclean_backend.py
+      - name: Run core upstream engine regression tests
+        run: python -m pytest -q tests/test_format_dispatch.py tests/test_av_meta.py tests/test_http_server.py
+
+  rust-check:
+    name: Rust & Tauri 2 Compilation Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Linux WebKitGTK & Tauri system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: "./src-tauri -> target"
+      - name: Create placeholder dist directory
+        run: mkdir -p dist && echo "<!doctype html><html><body>OriginClean</body></html>" > dist/index.html
+      - name: Run cargo test inside src-tauri
+        working-directory: src-tauri
+        run: cargo test

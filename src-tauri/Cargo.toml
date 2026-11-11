@@ -1,0 +1,31 @@
+[package]
+name = "originclean"
+version = "1.0.0"
+description = "OriginClean Desktop Application — Clean Your Files. Preserve Their Origin."
+authors = ["Muhammad Lutfi Muzaki"]
+license = "MIT"
+repository = "https://github.com/MuhammadLutfiMuzakiiVY/OriginClean"
+homepage = "https://github.com/MuhammadLutfiMuzakiiVY/OriginClean"
+edition = "2021"
+rust-version = "1.77.2"
+
+[lib]
+name = "originclean_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2.0.5", features = [] }
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tauri = { version = "2.2.0", features = [] }
+
+[package.metadata.winres]
+ProductName = "OriginClean"
+FileDescription = "OriginClean Desktop Application"
+CompanyName = "Muhammad Lutfi Muzaki"
+LegalCopyright = "Copyright © 2026 Muhammad Lutfi Muzaki"
+InternalName = "OriginClean"
+OriginalFilename = "OriginClean.exe"
+

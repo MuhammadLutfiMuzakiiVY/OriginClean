@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "originclean"
+version = "1.0.0"
+description = "OriginClean — Clean Your Files. Preserve Their Origin. Cross-platform desktop file inspection, metadata management, and watermark cleaning."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [
+  { name = "Muhammad Lutfi Muzaki" }
+]
+maintainers = [
+  { name = "Muhammad Lutfi Muzaki" }
+]
+keywords = ["originclean", "metadata", "c2pa", "watermark", "privacy", "desktop"]
+
+[project.urls]
+Homepage = "https://github.com/MuhammadLutfiMuzakiiVY/OriginClean"
+Repository = "https://github.com/MuhammadLutfiMuzakiiVY/OriginClean.git"
+
+[project.scripts]
+originclean-server = "backend.service.app_server:main"
+
