@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=OriginClean
+GenericName=File Cleaning Utility
+Comment=Desktop file inspection and cleaning application.
+Exec=originclean
+Icon=originclean
+Categories=Utility;
+Terminal=false
+StartupWMClass=OriginClean
+

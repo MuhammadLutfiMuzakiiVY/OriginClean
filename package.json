@@ -1,0 +1,52 @@
+{
+  "name": "originclean",
+  "productName": "OriginClean",
+  "version": "1.0.0",
+  "private": true,
+  "description": "OriginClean — Clean Your Files. Preserve Their Origin. Cross-platform desktop utility for file inspection, metadata management, and watermark cleaning.",
+  "author": {
+    "name": "Muhammad Lutfi Muzaki",
+    "url": "https://github.com/MuhammadLutfiMuzakiiVY"
+  },
+  "publisher": "Muhammad Lutfi Muzaki",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MuhammadLutfiMuzakiiVY/OriginClean.git"
+  },
+  "homepage": "https://github.com/MuhammadLutfiMuzakiiVY/OriginClean",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:all": "node scripts/dev-launcher.mjs",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "backend": "python backend/service/app_server.py",
+    "tauri": "tauri"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^2.2.0",
+    "lucide-react": "^0.469.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.2.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.1.0",
+    "@types/node": "^22.10.2",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "jsdom": "^25.0.1",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.5",
+    "vitest": "^2.1.8"
+  }
+}
+

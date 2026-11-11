@@ -1,0 +1,68 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "OriginClean",
+  "version": "1.0.0",
+  "identifier": "com.muhammadlutfimuzaki.originclean",
+  "build": {
+    "beforeDevCommand": "npm run dev:all",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "OriginClean — Clean Your Files. Preserve Their Origin.",
+        "width": 1280,
+        "height": 840,
+        "minWidth": 960,
+        "minHeight": 640,
+        "resizable": true,
+        "fullscreen": false
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; connect-src 'self' http://127.0.0.1:* http://localhost:*; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["nsis", "msi", "dmg", "app", "appimage", "deb", "rpm"],
+    "publisher": "Muhammad Lutfi Muzaki",
+    "copyright": "Copyright © 2026 Muhammad Lutfi Muzaki. All rights reserved.",
+    "category": "Utility",
+    "shortDescription": "File Cleaning Utility",
+    "longDescription": "Desktop file inspection and cleaning application developed and published by Muhammad Lutfi Muzaki.",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "resources": [
+      "../backend/**/*",
+      "../service/scripts/**/*",
+      "../config/**/*"
+    ],
+    "windows": {
+      "certificateThumbprint": null,
+      "digestAlgorithm": "sha256",
+      "timestampUrl": "http://timestamp.digicert.com",
+      "nsis": {
+        "installMode": "currentUser"
+      }
+    },
+    "macOS": {
+      "minimumSystemVersion": "11.0",
+      "signingIdentity": null
+    },
+    "linux": {
+      "deb": {
+        "section": "utils",
+        "priority": "optional"
+      }
+    }
+  }
+}
+
